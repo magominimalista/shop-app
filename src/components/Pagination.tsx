@@ -69,7 +69,7 @@ export function Pagination({ totalItems, itemsPerPage, currentPage }: Pagination
         <button
           key={page}
           onClick={() => handlePageChange(page as number)}
-          className={`relative inline-flex items-center px-4 py-2 text-sm font-semibold rounded-full mx-1 transition-colors duration-200 ease-in-out ${
+          className={`relative inline-flex items-center px-4 py-2 text-sm font-semibold rounded-full mx-2 transition-colors duration-200 ease-in-out ${
             currentPage === page
               ? 'bg-blue-500 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900'
               : 'text-gray-300 hover:bg-gray-800 hover:text-white focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 focus:ring-offset-gray-900'
@@ -103,7 +103,7 @@ export function Pagination({ totalItems, itemsPerPage, currentPage }: Pagination
       </div>
       <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-center">
         <div>
-          <nav className="isolate inline-flex space-x-1" aria-label="Pagination">
+          <nav className="isolate inline-flex space-x-3" aria-label="Pagination">
             <button
               onClick={() => handlePageChange(currentPage - 1)}
               disabled={currentPage === 1}
