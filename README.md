@@ -1,36 +1,113 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Shop App
+
+A modern e-commerce application built with Next.js 14, featuring server components, Prisma ORM, and a sleek user interface powered by Shadcn/ui and Tailwind CSS.
+
+## Technologies
+
+- Next.js 14 (App Router)
+- TypeScript
+- Prisma ORM
+- PostgreSQL
+- Tailwind CSS
+- Shadcn/ui
+- Next Auth
+
+## Prerequisites
+
+Before you begin, ensure you have the following installed:
+- Node.js (version 18 or higher)
+- npm or pnpm
+- PostgreSQL
 
 ## Getting Started
 
-First, run the development server:
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/shop-app.git
+cd shop-app
+```
 
+2. Install dependencies:
+```bash
+npm install
+# or
+pnpm install
+```
+
+3. Set up environment variables:
+```bash
+cp .env.example .env
+```
+Update the `.env` file with your database credentials and other required variables.
+
+4. Set up Prisma:
+```bash
+# Generate Prisma Client
+npx prisma generate
+
+# Run database migrations
+npx prisma migrate dev
+
+# (Optional) Seed the database
+npx prisma db seed
+```
+
+5. Start the development server:
 ```bash
 npm run dev
 # or
-yarn dev
-# or
 pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Database Management with Prisma
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Common Prisma Commands
 
-## Learn More
+- View database in Prisma Studio:
+```bash
+npx prisma studio
+```
 
-To learn more about Next.js, take a look at the following resources:
+- Create a new migration:
+```bash
+npx prisma migrate dev --name your_migration_name
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Reset database (caution: this will delete all data):
+```bash
+npx prisma migrate reset
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Update Prisma Client after schema changes:
+```bash
+npx prisma generate
+```
 
-## Deploy on Vercel
+## Project Structure
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+shop-app/
+├── src/
+│   ├── app/             # Next.js app router pages
+│   ├── components/      # React components
+│   ├── lib/            # Utility functions and configurations
+│   └── styles/         # Global styles and Tailwind CSS
+├── prisma/
+│   ├── schema.prisma   # Database schema
+│   └── migrations/     # Database migrations
+└── public/            # Static assets
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
