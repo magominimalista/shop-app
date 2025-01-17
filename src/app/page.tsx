@@ -2,12 +2,16 @@ import { prisma } from "@/lib/db";
 import { ProductCard } from "@/components/ProductCard";
 import { Product } from "@/types";
 
+interface SearchParams {
+  q?: string;
+}
+
 export default async function Home({
   searchParams,
 }: {
-  searchParams: { q: string };
+  searchParams: SearchParams;
 }) {
-  const query = searchParams.q?.toLowerCase() || '';
+  const query = (searchParams?.q || '').toLowerCase();
   
   const products: Product[] = await prisma.product.findMany({
     where: {
