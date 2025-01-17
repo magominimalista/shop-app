@@ -88,22 +88,6 @@ async function main() {
       size: "One Size"
     },
     {
-      name: "Tech Ninja Mask",
-      description: "Advanced filtration mask with voice modulation and LED indicators. Cyberpunk aesthetic meets functionality.",
-      price: 69.99,
-      image: "https://images.unsplash.com/photo-1614274300320-f8d5002d5a09?q=80&w=1974&auto=format&fit=crop",
-      category: "Accessories",
-      size: "One Size"
-    },
-    {
-      name: "Synthetic Cargo Shorts",
-      description: "Technical cargo shorts with water-repellent coating and multiple secure pockets. Perfect for urban missions.",
-      price: 89.99,
-      image: "https://images.unsplash.com/photo-1565839751462-da0d2b00edd5?q=80&w=1974&auto=format&fit=crop",
-      category: "Pants",
-      size: "M"
-    },
-    {
       name: "Data Stream Tank Top",
       description: "Sleeveless top with binary code pattern and moisture-wicking technology. Ideal for cyber athletes.",
       price: 39.99,
@@ -166,6 +150,158 @@ async function main() {
       image: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?q=80&w=1936&auto=format&fit=crop",
       category: "Outerwear",
       size: "XL"
+    },
+    {
+      name: "Holographic Visor",
+      description: "Transparent display visor with augmented reality overlay and customizable HUD elements.",
+      price: 299.99,
+      image: "https://images.unsplash.com/photo-1626285861696-9f0bf5a49c6d?q=80&w=1974&auto=format&fit=crop",
+      category: "Accessories",
+      size: "One Size"
+    },
+    {
+      name: "Nano-Tech Running Shoes",
+      description: "Self-adapting running shoes with reactive cushioning and LED pulse indicators.",
+      price: 189.99,
+      image: "https://images.unsplash.com/photo-1608231387042-66d1773070a5?q=80&w=1974&auto=format&fit=crop",
+      category: "Footwear",
+      size: "42"
+    },
+    {
+      name: "Cyber Monk Hoodie",
+      description: "Minimalist hoodie with hidden tech pockets and sound-reactive LED trim.",
+      price: 149.99,
+      image: "https://images.unsplash.com/photo-1578681994506-b8f463449011?q=80&w=1974&auto=format&fit=crop",
+      category: "Tops",
+      size: "L"
+    },
+    {
+      name: "Tech-Weave Scarf",
+      description: "Smart fabric scarf with built-in air filtration and temperature regulation.",
+      price: 79.99,
+      image: "https://images.unsplash.com/photo-1601925260368-ae2f83cf8b7f?q=80&w=1974&auto=format&fit=crop",
+      category: "Accessories",
+      size: "One Size"
+    },
+    {
+      name: "Plasma Pulse Watch",
+      description: "Advanced timepiece with holographic display and biometric tracking.",
+      price: 249.99,
+      image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1974&auto=format&fit=crop",
+      category: "Accessories",
+      size: "One Size"
+    },
+    {
+      name: "Urban Stealth Pants",
+      description: "Adaptive camouflage pants with climate control and modular attachments.",
+      price: 169.99,
+      image: "https://images.unsplash.com/photo-1584865288642-42078afe6942?q=80&w=1974&auto=format&fit=crop",
+      category: "Pants",
+      size: "M"
+    },
+    {
+      name: "Quantum Mesh Vest",
+      description: "Lightweight vest with active cooling and customizable light patterns.",
+      price: 129.99,
+      image: "https://images.unsplash.com/photo-1617952236317-0bd127407984?q=80&w=1974&auto=format&fit=crop",
+      category: "Outerwear",
+      size: "S"
+    },
+    {
+      name: "Neural Link Earbuds",
+      description: "Wireless earbuds with ambient sound processing and neural response tracking.",
+      price: 199.99,
+      image: "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?q=80&w=1974&auto=format&fit=crop",
+      category: "Accessories",
+      size: "One Size"
+    },
+    {
+      name: "Cyber Denim Jacket",
+      description: "Classic denim reimagined with embedded tech and reactive lighting panels.",
+      price: 179.99,
+      image: "https://images.unsplash.com/photo-1543076447-215ad9ba6923?q=80&w=1974&auto=format&fit=crop",
+      category: "Outerwear",
+      size: "M"
+    },
+    {
+      name: "Holo-Screen Glasses",
+      description: "Smart glasses with retinal projection display and gesture controls.",
+      price: 289.99,
+      image: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?q=80&w=1974&auto=format&fit=crop",
+      category: "Accessories",
+      size: "One Size"
+    },
+    {
+      name: "Techno-Weave Sweater",
+      description: "Smart fabric sweater with programmable color-changing patterns.",
+      price: 159.99,
+      image: "https://images.unsplash.com/photo-1578587018452-892bacefd3f2?q=80&w=1974&auto=format&fit=crop",
+      category: "Tops",
+      size: "L"
+    },
+    {
+      name: "Data Stream Bandana",
+      description: "Multi-functional bandana with embedded LED matrix display.",
+      price: 49.99,
+      image: "https://images.unsplash.com/photo-1599032909756-5deb82fea3b0?q=80&w=1974&auto=format&fit=crop",
+      category: "Accessories",
+      size: "One Size"
+    },
+    {
+      name: "Cyber Combat Vest",
+      description: "Tactical vest with integrated power distribution and cooling system.",
+      price: 219.99,
+      image: "https://images.unsplash.com/photo-1604176354204-9268737828e4?q=80&w=1974&auto=format&fit=crop",
+      category: "Outerwear",
+      size: "XL"
+    },
+    {
+      name: "Neural Mesh Cap",
+      description: "Baseball cap with built-in neural interface and status indicators.",
+      price: 89.99,
+      image: "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?q=80&w=1974&auto=format&fit=crop",
+      category: "Accessories",
+      size: "One Size"
+    },
+    {
+      name: "Quantum Fiber Socks",
+      description: "Smart socks with pressure mapping and temperature regulation.",
+      price: 39.99,
+      image: "https://images.unsplash.com/photo-1586350977771-b3b0abd50c82?q=80&w=1974&auto=format&fit=crop",
+      category: "Accessories",
+      size: "M"
+    },
+    {
+      name: "Tech-Enhanced Arm Sleeves",
+      description: "Compression sleeves with muscle performance tracking and LED indicators.",
+      price: 69.99,
+      image: "https://images.unsplash.com/photo-1562183241-840b8af0721e?q=80&w=1974&auto=format&fit=crop",
+      category: "Accessories",
+      size: "M"
+    },
+    {
+      name: "Digital Camo Jumpsuit",
+      description: "Full-body jumpsuit with adaptive camouflage and environmental sensors.",
+      price: 299.99,
+      image: "https://images.unsplash.com/photo-1578681994506-b8f463449011?q=80&w=1974&auto=format&fit=crop",
+      category: "Outerwear",
+      size: "M"
+    },
+    {
+      name: "Neon Pulse Wristbands",
+      description: "Smart wristbands with customizable lighting and gesture controls.",
+      price: 59.99,
+      image: "https://images.unsplash.com/photo-1533681475364-326b6803d677?q=80&w=1974&auto=format&fit=crop",
+      category: "Accessories",
+      size: "One Size"
+    },
+    {
+      name: "Cyber Tactical Belt",
+      description: "Multi-tool belt with modular attachments and power distribution system.",
+      price: 129.99,
+      image: "https://images.unsplash.com/photo-1624222247344-550fb60583dc?q=80&w=1974&auto=format&fit=crop",
+      category: "Accessories",
+      size: "One Size"
     }
   ];
 
