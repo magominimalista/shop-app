@@ -5,6 +5,7 @@ import { Product } from "@/types";
 import { Pagination } from "@/components/Pagination";
 import { LoadingSkeleton } from "@/components/LoadingSkeleton";
 import { CategoryFilter } from "@/components/CategoryFilter";
+import { SizeFilter } from "@/components/SizeFilter";
 
 const ITEMS_PER_PAGE = 16;
 
@@ -12,6 +13,7 @@ interface SearchParams {
   q?: string;
   page?: string;
   category?: string;
+  size?: string;
 }
 
 async function getCategories() {
@@ -24,14 +26,28 @@ async function getCategories() {
   return categories.map(c => c.category);
 }
 
+async function getSizes() {
+  const sizes = await prisma.product.findMany({
+    select: {
+      size: true,
+    },
+    distinct: ['size'],
+  });
+  return sizes.map(s => s.size);
+}
+
 async function ProductList({ searchParams }: { searchParams: SearchParams }) {
   const query = (searchParams?.q || '').toLowerCase();
   const category = searchParams?.category;
+  const size = searchParams?.size;
   const currentPage = Number(searchParams?.page) || 1;
   const skip = (currentPage - 1) * ITEMS_PER_PAGE;
   
-  // Get all unique categories
-  const categories = await getCategories();
+  // Get all unique categories and sizes
+  const [categories, sizes] = await Promise.all([
+    getCategories(),
+    getSizes(),
+  ]);
   
   // Build the where clause
   const whereClause: any = {
@@ -48,6 +64,11 @@ async function ProductList({ searchParams }: { searchParams: SearchParams }) {
   // Add category filter if selected
   if (category) {
     whereClause.AND.push({ category });
+  }
+
+  // Add size filter if selected
+  if (size) {
+    whereClause.AND.push({ size });
   }
   
   // Get total count for pagination
@@ -71,7 +92,10 @@ async function ProductList({ searchParams }: { searchParams: SearchParams }) {
         <h2 className="text-3xl font-bold tracking-tight text-blue-400">
           {query ? `Search Results for "${searchParams.q}"` : 'Featured Collection'}
         </h2>
-        <CategoryFilter categories={categories} />
+        <div className="flex items-center gap-3">
+          <CategoryFilter categories={categories} />
+          <SizeFilter sizes={sizes} />
+        </div>
       </div>
 
       {products.length === 0 ? (
