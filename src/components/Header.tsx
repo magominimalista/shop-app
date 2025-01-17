@@ -1,4 +1,7 @@
+'use client';
+
 import Link from 'next/link';
+import { SearchInput } from './SearchInput';
 
 export function Header() {
   return (
@@ -13,6 +16,7 @@ export function Header() {
               NEXUS WEAR
             </Link>
           </div>
+          <SearchInput />
           <div className="ml-10 space-x-8">
             <Link
               href="/"
