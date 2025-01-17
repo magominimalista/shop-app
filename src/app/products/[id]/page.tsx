@@ -13,6 +13,18 @@ export default async function ProductPage({ params }: ProductPageProps) {
     where: {
       id: params.id,
     },
+    select: {
+      id: true,
+      name: true,
+      description: true,
+      price: true,
+      image: true,
+      additionalImages: true,
+      category: true,
+      size: true,
+      createdAt: true,
+      updatedAt: true,
+    },
   });
 
   if (!product) {
