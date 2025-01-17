@@ -84,7 +84,7 @@ export function Pagination({ totalItems, itemsPerPage, currentPage }: Pagination
   if (totalPages <= 1) return null;
 
   return (
-    <nav className="flex items-center justify-center border-t border-blue-500/20 px-4 py-3 sm:px-6">
+    <nav className="flex items-center justify-center px-4 py-3 sm:px-6">
       <div className="flex flex-1 justify-between sm:hidden">
         <button
           onClick={() => handlePageChange(currentPage - 1)}

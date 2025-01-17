@@ -1,6 +1,6 @@
 import { prisma } from "@/lib/db";
-import { notFound } from "next/navigation";
 import { ProductDetails } from "@/components/ProductDetails";
+import { notFound } from "next/navigation";
 
 interface ProductPageProps {
   params: {
@@ -19,5 +19,19 @@ export default async function ProductPage({ params }: ProductPageProps) {
     notFound();
   }
 
-  return <ProductDetails product={product} />;
+  // Get 4 random products from the same category, excluding the current product
+  const relatedProducts = await prisma.product.findMany({
+    where: {
+      category: product.category,
+      id: {
+        not: product.id,
+      },
+    },
+    take: 4,
+    orderBy: {
+      createdAt: 'desc',
+    },
+  });
+
+  return <ProductDetails product={product} relatedProducts={relatedProducts} />;
 }

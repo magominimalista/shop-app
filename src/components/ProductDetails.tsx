@@ -4,12 +4,14 @@ import { Product } from "@/types";
 import { useCart } from "@/context/CartContext";
 import { Tag, Ruler, DollarSign, ShoppingCart, ArrowLeft, Box } from 'lucide-react';
 import { useRouter } from "next/navigation";
+import { ProductCard } from "./ProductCard";
 
 interface ProductDetailsProps {
   product: Product;
+  relatedProducts: Product[];
 }
 
-export function ProductDetails({ product }: ProductDetailsProps) {
+export function ProductDetails({ product, relatedProducts }: ProductDetailsProps) {
   const { addItem } = useCart();
   const router = useRouter();
 
@@ -81,6 +83,20 @@ export function ProductDetails({ product }: ProductDetailsProps) {
             </div>
           </div>
         </div>
+
+        {/* Related Products */}
+        {relatedProducts.length > 0 && (
+          <div className="mt-16">
+            <h2 className="text-2xl font-bold tracking-tight text-blue-400 mb-8">
+              More from {product.category}
+            </h2>
+            <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
+              {relatedProducts.map((relatedProduct) => (
+                <ProductCard key={relatedProduct.id} product={relatedProduct} />
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
