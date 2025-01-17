@@ -1,9 +1,13 @@
 import { prisma } from "@/lib/db";
 import { ProductCard } from "@/components/ProductCard";
 import { Product } from "@/types";
+import { Pagination } from "@/components/Pagination";
+
+const ITEMS_PER_PAGE = 16;
 
 interface SearchParams {
   q?: string;
+  page?: string;
 }
 
 export default async function Home({
@@ -12,7 +16,21 @@ export default async function Home({
   searchParams: SearchParams;
 }) {
   const query = (searchParams?.q || '').toLowerCase();
+  const currentPage = Number(searchParams?.page) || 1;
+  const skip = (currentPage - 1) * ITEMS_PER_PAGE;
   
+  // Get total count for pagination
+  const totalItems = await prisma.product.count({
+    where: {
+      OR: [
+        { name: { contains: query } },
+        { description: { contains: query } },
+        { category: { contains: query } },
+      ],
+    },
+  });
+
+  // Get paginated products
   const products: Product[] = await prisma.product.findMany({
     where: {
       OR: [
@@ -20,6 +38,11 @@ export default async function Home({
         { description: { contains: query } },
         { category: { contains: query } },
       ],
+    },
+    skip,
+    take: ITEMS_PER_PAGE,
+    orderBy: {
+      createdAt: 'desc',
     },
   });
 
@@ -32,11 +55,20 @@ export default async function Home({
         {products.length === 0 ? (
           <p className="text-gray-400 text-center py-8">No products found matching your search.</p>
         ) : (
-          <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-            {products.map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
-          </div>
+          <>
+            <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+              {products.map((product) => (
+                <ProductCard key={product.id} product={product} />
+              ))}
+            </div>
+            <div className="mt-8">
+              <Pagination
+                totalItems={totalItems}
+                itemsPerPage={ITEMS_PER_PAGE}
+                currentPage={currentPage}
+              />
+            </div>
+          </>
         )}
       </div>
     </div>
