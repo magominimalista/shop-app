@@ -13,6 +13,7 @@ model Product {
   description String
   price       Float
   image       String
+  additionalImages String @default("")
   category    String
   size        String
   createdAt   DateTime @default(now())

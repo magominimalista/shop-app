@@ -5,6 +5,7 @@ import { useCart } from "@/context/CartContext";
 import { Tag, Ruler, DollarSign, ShoppingCart, ArrowLeft, Box } from 'lucide-react';
 import { useRouter } from "next/navigation";
 import { ProductCard } from "./ProductCard";
+import { ProductGallery } from "./ProductGallery";
 
 interface ProductDetailsProps {
   product: Product;
@@ -14,6 +15,9 @@ interface ProductDetailsProps {
 export function ProductDetails({ product, relatedProducts }: ProductDetailsProps) {
   const { addItem } = useCart();
   const router = useRouter();
+
+  // Parse additional images from comma-separated string
+  const additionalImages = product.additionalImages ? product.additionalImages.split(',').filter(Boolean) : [];
 
   return (
     <div className="bg-gray-900">
@@ -27,14 +31,8 @@ export function ProductDetails({ product, relatedProducts }: ProductDetailsProps
         </button>
 
         <div className="lg:grid lg:grid-cols-2 lg:gap-x-8">
-          {/* Product Image */}
-          <div className="aspect-square w-full overflow-hidden rounded-lg border border-gray-800">
-            <img
-              src={product.image}
-              alt={product.name}
-              className="h-full w-full object-cover object-center"
-            />
-          </div>
+          {/* Product Gallery */}
+          <ProductGallery mainImage={product.image} additionalImages={additionalImages} />
 
           {/* Product Info */}
           <div className="mt-8 lg:mt-0">
